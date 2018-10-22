@@ -17,30 +17,10 @@ nav a { /* links with "nav" container" */
     color:white;           /* by default, links are blue */
 }
 
-nav a:hover { /*pseudo class*/
-    border-bottom: 2px orange solid;
-    font-size: 2em;
-    transition: .9s;  /* transition effect */
-}
-
-#currentPage {
-    font-size: 2em;
-    color:red;
-    border-bottom: 2px red solid;
-}
-
-#me, #welcomeText {
-    float:left;
-}
-
 footer {
     clear: left;
     font-size: .7em;
     color:red;
-}
-
-#welcomeText {
-    text-align: left;
 }
 
 table {
@@ -56,6 +36,35 @@ td strong {
     color:orange;   
 }
 
+ul {
+    text-align: left;
+    padding-left: 200px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    margin-bottom: 0px;
+}
+
+nav a:hover, #currentPage { /*pseudo class*/
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s;  /* transition effect */
+}
+
+#me, #welcomeText {
+    float:left;
+}
+
+#picture {
+    border-radius: 90px;    
+}
+
+#welcomeText {
+    text-align: left;
+}
+
 #table-header {
     background-color: #351a00;
 }
@@ -66,15 +75,4 @@ td strong {
 
 .hobby {
     color:yellow;
-}
-
-ul {
-    text-align: left;
-    padding-left: 200px;
-}
-
-h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 4em;
-    margin-bottom: 0px;
 }
