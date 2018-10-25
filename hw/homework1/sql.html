@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Relational Databases</title>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet"> 
+    </head>
+    
+
+    <body>
+        <header>
+            <h1>RELATIONAL DATABASES</h1>
+        </header>
+        <hr/>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</li></a>
+                <li><a href="history.html">History</li></a>
+                <li><a href="tables.html">Database Structure</li></a>
+                <li><a href="sql.html" id="currentPage">SQL</li></a>
+                <li><a href="sources.html">Sources</a></li>
+            </ul>
+        </nav>
+        <hr/>
+        
+        <main>
+            <figure>
+                <img src="img/anatomy-of-select-statement.png">
+                <figcaption>Image Source: <a href="https://launchschool.com/books/sql_first_edition/read/select_data">launchschool.com</a></figcaption>
+            </figure>
+            
+            <div>
+                <br/>
+                <p>
+                    The language used to interact with relational databases is SQL (Structured Query Language). With SQL tables can be created, altered,
+                    and deleted. Records can be inserted, updated, and selected from the tables for viewing. Each SQL query specifies what is to be done
+                    to which table.
+                </p> 
+                
+                <p>
+                    Examples of some SQL statements:
+                </p>
+                <table id="SQLexamples">
+                    <tr>
+                        <th>Statement</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr class="SQLrow">
+                        <td><span class='SQLkeyword'>SELECT</span> * <span class='SQLkeyword'>FROM</span> customers;</td>
+                        <td>Returns all records and fields from the table titled customers.</td>
+                    </tr>
+                    <tr class="SQLrow">
+                        <td><span class='SQLkeyword'>SELECT</span> fname, lname <span class='SQLkeyword'>FROM</span> customers <span class='SQLkeyword'>WHERE</span> age > 30;</td>
+                        <td>Returns the first and last name of customers older than 30.</td>
+                    </tr>
+                    <tr class="SQLrow">
+                        <td><span class='SQLkeyword'>INSERT INTO</span> customer (fname, lname, age) <span class='SQLkeyword'>VALUES</span> ('Bob', 'Dole', 95);</td>
+                        <td>Inserts a customers record into the customer table.</td>
+                    </tr>
+                    <tr class="SQLrow">
+                        <td><span class='SQLkeyword'>UPDATE</span> customers <span class='SQLkeyword'>SET</span> fname='Steve';</td>
+                        <td>Updates all customers first names to Steve.</td>
+                    </tr>
+                    <tr class="SQLrow">
+                        <td><span class='SQLkeyword'>DELETE FROM</span> customer <span class='SQLkeyword'>WHERE</span> lname='Dole';</td>
+                        <td>Deletes all records from customer table where the the customers last name is Dole.</td>
+                    </tr>
+                </table>
+                <br /><br />
+            </div>
+        </main>
+        
+        <footer>
+            <hr>
+            CST336 Interet Programming. 2018&copy; Irby <br />
+            <strong>Disclaimer:</strong> The informaiton in this webpage is fictitous. <br />
+            It is used for academic purposes only.
+            
+            <figure>
+                <img src="img/csumb_logo.png" alt="Picture of CSUMB Logo" class="homePicture" />
+            </figure>
+        </footer>
+    </body>
+</html>

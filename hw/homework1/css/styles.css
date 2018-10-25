@@ -1,0 +1,102 @@
+header {
+    font-size: 2em;
+    margin-bottom: 0;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+header, nav, div, main, footer, table {
+    text-align: center;
+    padding: 0px;
+    padding-bottom: 0;
+    width:1000px;
+    margin: 0 auto;
+}
+
+hr {
+    width:75%;
+    margin-top: 0px;
+}
+
+nav li {
+    display: inline;
+    padding:5px;
+}
+
+nav a {
+    padding: 10px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: black;
+    border-style: inset;
+}
+
+nav a:hover, #currentPage {
+    font-size: 1.8em;
+    transition: .9s;
+    background-color: black;
+    color: white;
+}
+
+#currentPage {
+    font-variant: small-caps;
+    border-bottom-style: solid;
+}
+
+#homeText, #historyText {
+    text-align: left;
+}
+
+#homeText li {
+    list-style-type: none;
+    list-style-position: inherit;
+}
+
+.homePicture, #historyPicture{
+    float:left;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-right: 25px;
+}
+
+figure figcaption {
+    text-align: left;
+    font-size:.8em;
+}
+
+footer {
+    clear:both;
+}
+
+table {
+    border-collapse: collapse;
+    padding: 0px;
+    width:75%;
+    font-size: .8em;
+}
+
+#SQLexamples {
+    width:100%;
+}
+
+tr th {
+    background-color: gray;
+    color:white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#SQLexamples td:nth-child(odd) {
+    border-right: 1px solid black;
+}
+
+.SQLrow:hover, .sourceRow:hover{
+    font-size: 1.25em;
+}
+
+.SQLkeyword {
+    color:blue;
+}
