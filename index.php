@@ -16,7 +16,7 @@
         <div id="homework">
             <h1>Homework</h1>
             <ul>
-                <li>Homework 1</li>
+                <li><a href="hw/homework1">Homework 1</a></li>
             </ul>
         </div>
     </body>
