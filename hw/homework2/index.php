@@ -6,12 +6,13 @@ include 'inc/functions.php';
         <meta charset="utf-8">
         <title>Dice Roller</title>
         <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
     </head>
     
     <body>
         <header>
             <h1>Dice Roller</h1>
-            <h5>Select the number of dice to roll then hit "Roll!". Your rolls will be displayed with some information about your results.</h5>
+            <p>Select the number of dice to roll then hit "Roll!". Your rolls will be displayed with some information about your results.</p>
             <hr />
         </header>
         <main>

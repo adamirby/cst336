@@ -5,15 +5,28 @@ body, #diceTable, #diceStatsTable{
     margin: 0 auto;
 }
 
+hr {
+    color:red;
+}
+
 #diceTable, #diceStatsTable{
     border-collapse: collapse;
     padding: 0px;
     width:75%;
-    font-size: .8em;
+    font-size: .9em;
 }
 
 #diceStatsTable{
-    border: 1px solid white;
+    border: 1px solid red;
+}
+
+#diceStatsTable th{
+    color:red;
+}
+
+#diceStatsTable td{
+    color: lightblue;
+    font-size: 1em;
 }
 
 header, main, footer{
@@ -28,4 +41,15 @@ figure{
     float:left;
 }
 
+header p{
+    font-family: "Comic Sans MS";
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+header h1{
+    font-family: 'Lobster', cursive;
+    text-decoration: underline;
+    font-size: 55px;
+}
 
