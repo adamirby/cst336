@@ -19,6 +19,7 @@
             <h1>Homework</h1>
             <ul>
                 <li><a href="hw/homework1">Homework 1</a></li>
+                <li><a href="hw/homework2">Homework 2</a></li>
             </ul>
         </div>
     </body>
