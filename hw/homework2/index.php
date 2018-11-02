@@ -1,6 +1,7 @@
 <?php
 include 'inc/functions.php';
 ?>
+<!DOCTYPE html>
 <HTML lang="en">
     <head>
         <meta charset="utf-8">
