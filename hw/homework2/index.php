@@ -12,7 +12,7 @@ include 'inc/functions.php';
     <body>
         <header>
             <h1>Dice Roller</h1>
-            <p>Select the number of dice to roll then hit "Roll!". Your rolls will be displayed with some information about your results.</p>
+            <p>Select the number of dice to roll then hit <span id="Roll">"Roll!"</span>. Your rolls will be displayed with some information about your results.</p>
             <hr />
         </header>
         <main>
@@ -30,7 +30,7 @@ include 'inc/functions.php';
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select>
-                <input type="submit" value="Roll!">
+                <input type="submit" value="Roll!" id="rollButton">
             </form>
     
             
@@ -42,7 +42,7 @@ include 'inc/functions.php';
     
         <footer>
             <hr>
-            CST336 Interet Programming. 2018&copy; Irby <br />
+            CST336 Internet Programming. 2018&copy; Irby <br />
             <strong>Disclaimer:</strong> The information in this webpage is fictitious. <br />
             It is used for academic purposes only.
             <br/>
