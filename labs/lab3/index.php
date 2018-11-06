@@ -1,9 +1,12 @@
 <?php
     $backgroundImage = "img/sea.jpg";
     // API call goes here
-    if(isset($_GET['keyword']) || isset($_GET['category'])) {
-        include 'api/pixabayAPI.php';
+    include 'api/pixabayAPI.php';
+    if(isset($_GET['keyword']) && $_GET['keyword'] != "") {
         $imageURLs = getImageURLs($_GET['keyword'], $_GET['layout']);
+        $backgroundImage = $imageURLs[array_rand($imageURLs)];
+    } elseif(isset($_GET['category'])) {
+        $imageURLs = getImageURLs($_GET['category'], $_GET['layout']);
         $backgroundImage = $imageURLs[array_rand($imageURLs)];
     }
     
