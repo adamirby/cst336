@@ -36,7 +36,7 @@
             <input type="radio" id="lhorizontal" name="layout" value="horizontal">
             <label for="Horizontal"></label><label for="'horizontal">Horizontal</label>
             <input type="radio" id="lvertical" name="layout" value="vertical">
-            <label for="Vertical"></label><label for="lvertical">Vertival</label>
+            <label for="Vertical"></label><label for="lvertical">Vertical</label>
             <select name="keyword">
                 <option value="">Select One</option>
                 <option value="ocean">Sea</option>
@@ -63,11 +63,12 @@
                         <?php
                             for($i=0; $i < 7; $i++){
                                 echo "<li data-target='#carousel-example-generic' data-slide-to='$i'";
-                                echo ($i ==0)? "class='active'":"";
+                                echo ($i==0)? "class='active'":"";
                                 echo "></li>";
                             }
                         ?>
                     </ol>
+                    
                     <!-- Wrapper for Images -->
                     <div class="carousel-inner" role="listbox">
                     <?php
@@ -86,17 +87,19 @@
                         }
                     ?>   
                     </div>
-                 </div>   
+                   
+                 
                     <!-- Controls Here -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                
+                </div> 
+                    
         <?php        
             } //endElse
         ?>
