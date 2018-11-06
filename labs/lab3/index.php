@@ -1,7 +1,7 @@
 <?php
     $backgroundImage = "img/sea.jpg";
     // API call goes here
-    if(isset($_GET['keyword'])) {
+    if(isset($_GET['keyword']) || isset($_GET['category'])) {
         include 'api/pixabayAPI.php';
         $imageURLs = getImageURLs($_GET['keyword'], $_GET['layout']);
         $backgroundImage = $imageURLs[array_rand($imageURLs)];
@@ -37,7 +37,7 @@
             <label for="Horizontal"></label><label for="'horizontal">Horizontal</label>
             <input type="radio" id="lvertical" name="layout" value="vertical">
             <label for="Vertical"></label><label for="lvertical">Vertical</label>
-            <select name="keyword">
+            <select name="category">
                 <option value="">Select One</option>
                 <option value="ocean">Sea</option>
                 <option value="forest">Forest</option>
@@ -51,7 +51,7 @@
         <br/><br/>
         
         <?php
-            if(!isset($imageURLs) || $_GET['keyword'] == "" ) { //form has not been submitted
+            if(!isset($imageURLs) || ($_GET['keyword'] == "" && $_GET['category'] == "") ) { //form has not been submitted
                 echo "<h2> Type a keyword to display a slideshor <br /> with random images from Pixabay.com </h2>";
             } else { //form was submitted
                 //Display Carousel Here
