@@ -37,9 +37,9 @@
         <form>
             <input type="text" name="keyword" placeholder="keyword" value="<?=$_GET['keyword']?>"/>
             <input type="radio" id="lhorizontal" name="layout" value="horizontal">
-            <label for="Horizontal"></label><label for="'horizontal">Horizontal</label>
+            <label for="lhorizontal"></label><label for="lhorizontal">Horizontal</label>
             <input type="radio" id="lvertical" name="layout" value="vertical">
-            <label for="Vertical"></label><label for="lvertical">Vertical</label>
+            <label for="lvertical"></label><label for="lvertical">Vertical</label>
             <select name="category">
                 <option value="">Select One</option>
                 <option value="ocean">Sea</option>
