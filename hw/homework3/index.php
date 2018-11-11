@@ -67,7 +67,7 @@ if(isset($_GET['q1'])){
                     $$ 3)\lim_{x\to\infty} \frac{x^2-x-20}{x+4}$$
                     
                     <select name="q3">
-                        <option value="" <?php echo $_GET['q3']==''?'selected':'';?>></option></option>
+                        <option value="" <?php echo $_GET['q3']==''?'selected':'';?>>Select Your Answer</otion>
                         <option value="0" <?php echo $_GET['q3']=='0'?'selected':'';?>>0</option>
                         <option value="inf" <?php echo $_GET['q3']=='inf'?'selected':'';?>>&#x221e;</option>
                         <option value="12" <?php echo $_GET['q3']=='12'?'selected':'';?>>12</option>
@@ -78,17 +78,17 @@ if(isset($_GET['q1'])){
                         
                     <!-- Question 4 -->
                     $$ 4) \sum_{x=0}^{10} x $$
-                    <input type="number" name="q4" min="0" max="1000" placeholder="Enter Answer Here" value=<?=$_GET['q4']?>>
+                    <input type="number" name="q4" min="0" max="1000" placeholder="Enter Answer Here" value=<?php echo (isset($_GET['q4']))?$_GET['q4']:'';?>>
                     <hr class="questionDivider" />
                         
                     <!-- Question 5 -->
                     $$ 5) \text{ Given } \vec a = <8, 5> \text{ and } \vec b = <-3, 6> \text{ find } 7\vec b - 2\vec a$$
                     <select name="q5">
-                        <option value=""></option>
-                        <option value="-37,32" <?php echo $_GET['q5']=='-37,32'?'selected':'';?>><-37, 32></option>
-                        <option value="12,17" <?php echo $_GET['q5']=='12,17'?'selected':'';?>><12, 17></option>
-                        <option value="0,0" <?php echo $_GET['q5']=='0,0'?'selected':'';?>><0, 0></option>
-                        <option value="37,-32" <?php echo $_GET['q5']=='37,-32'?'selected':'';?>><37, -32></otion>
+                        <option value="">Select Your Answer</option>
+                        <option value="-37,32" <?php echo $_GET['q5']=='-37,32'?'selected':'';?>>&lt;-37, 32&gt;</option>
+                        <option value="12,17" <?php echo $_GET['q5']=='12,17'?'selected':'';?>>&lt;12, 17&gt;</option>
+                        <option value="0,0" <?php echo $_GET['q5']=='0,0'?'selected':'';?>>&lt;0, 0&gt;</option>
+                        <option value="37,-32" <?php echo $_GET['q5']=='37,-32'?'selected':'';?>>&lt;37, -32&gt;</option>
                     </select>
                     
                     <input type="submit" value="Submit">
