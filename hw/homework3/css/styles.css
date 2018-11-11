@@ -1,0 +1,94 @@
+header {
+    font-size: 2.5em;
+    margin-bottom: 0px;
+    font-family: 'Just Another Hand', cursive;
+    color:white;
+    text-shadow: 3px 3px #000;
+}
+
+main{
+    text-align: center;
+    margin: auto;
+    width: 1000px;
+    background-image: url("../img/background.png");
+    background-size: auto;
+}
+
+
+header,footer, #results, #test{
+    text-align: center;
+    padding: 0px;
+    width:1000px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+header{
+    background-image: url("../img/blackboard.jpg");
+    background-repeat: no-repeat;
+}
+
+#test, #results{
+    border-style: double;
+    margin: auto;
+    width:600px;
+}
+
+#testForm {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    list-style: none;
+}
+
+#q2tab{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+#footerDiv hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#grade{
+    font-size: 2em;
+    color:red;
+}
+.resultMessage{
+    font-size: 1.5em;
+    color:red;
+    text-decoration: underline;
+}
+
+.notSet{
+    font-size: 1em;
+    color:red;
+}
+
+.questionDivider{
+    width: 75%;
+    margin: 10px auto 10px auto;
+}
+
+input {
+    text-align: center;  
+}
+
+header p {
+    font-size: .7em;
+}
+
+footer {
+    font-size: .75em;
+    font-style:italic;
+}
+
+footer img{
+    float:left;
+}
+
+input[type="radio"]{
+    margin:10px;
+}
