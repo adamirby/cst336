@@ -21,6 +21,7 @@
             <ul>
                 <li><a href="hw/homework1">Homework 1</a></li>
                 <li><a href="hw/homework2">Homework 2</a></li>
+                <li><a href="hw/homework3">Homework 3</a></li>
             </ul>
         </div>
     </body>
