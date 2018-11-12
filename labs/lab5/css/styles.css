@@ -1,0 +1,66 @@
+body{
+    background: #660000;
+}
+
+header, main, footer{
+    text-align: center;
+    padding: 0px;
+    width:1000px;
+    margin: 0 auto;
+    background:white;
+}
+
+header{
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.75em;
+    text-shadow: 2px 2px #000000;
+}
+
+input[type="radio"]{
+    display:inline;
+}
+
+form{
+    padding-top:15px;   
+    padding-bottom:0px;
+}
+
+table{
+    background: black;
+}
+
+footer{
+    font-style:oblique;
+}
+
+hr{
+    width:1000px;
+}
+
+#productHeader{
+    text-decoration: underline;
+    font-size: 1.3em;
+}
+
+.productName{
+    text-decoration: underline;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.2em;
+}
+
+.result{
+    border-style: solid;
+    background: white;
+}
+
+.label{
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+}
+
+.result:hover{
+    transition: .5s;
+    background-color: black;
+    color: white;
+}
