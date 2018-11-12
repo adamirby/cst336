@@ -40,7 +40,7 @@
     }
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html lang="en">
 <html>
     <head>
         <meta charset="UTF-8">
