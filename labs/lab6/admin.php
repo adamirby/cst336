@@ -78,7 +78,7 @@
                 echo "<td>".$record['productId']."</td>";
                 echo "<td>".$record['productName']."</td>";
                 echo "<td>".$record['productDescription']."</td>";
-                echo "<td>".$record['price']."</td>";
+                echo "<td>$".$record['price']."</td>";
                 echo "<td><a class='btn btn-primary' href='updateProduct.php?productId=".$record['productId']."'>Update</a></td>";
                 
                 echo "<form action='deleteProduct.php' onsubmit='return confirmDelete()'>";
