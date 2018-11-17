@@ -1,3 +1,9 @@
+<script>
+    function updated(){
+        return alert("Product has been updated!");
+    }
+</script>
+
 <?php
     include 'dbConnection.php';
     session_start();
@@ -25,7 +31,7 @@
         
         $statement=$connection->prepare($sql);
         $statement->execute($np);
-        echo "Product has been updated!";
+        echo "<script>updated();</script>";
     }
     
     
@@ -61,47 +67,65 @@
             echo  $record['catName']." </option>";
         }
     }
-
+    
 ?>
+
+
 
 <!DOCTYPE html>
 <HTML lang='en'>
     <head>
-<meta charset="UTF-8">
+        <title>Update Product</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
-        <div class="row">
-            <div class="col-md-7 col-md-offset-4">
-                <form>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input type="hidden" name="productId" value= "<?=$product['productId']?>"/>
-                            <strong>Product Name</strong> <input type="text" class="form-control" value="<?=$product['productName']?>" name="productName"><br />
-                        
-                            <strong>Description</strong> <textarea name="productDescription" class="form-control" cols="50" rows="4"><?=$product['productDescription']?></textarea><br />
-                        
-                        
-                            <strong>Price</strong> <input type="text" class="form-control" name="price" value="<?=$product['price']?>"<br />
-                            <br />
-                            <strong>Set Image Url</strong> <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>"><br />
-                            
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Update Product</h2>
+                <nav class="navbar navbar-dark bg-dark">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <form action="admin.php">
+                                <input type="submit" class="btn btn-primary btn-sm" id="beginning" name="addproduct" value="Home" />
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <form action="logout.php" >
+                                <input type="submit" class="btn btn-warning btn-sm" id="beginning" value="Logout" />
+                            </form>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-md-offset-3">
+                    <form>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="hidden" name="productId" value= "<?=$product['productId']?>"/>
+                                <strong>Product Name</strong> <input type="text" class="form-control" value="<?=$product['productName']?>" name="productName" required><br />
+                                <strong>Description</strong> <textarea name="productDescription" class="form-control" cols="50" rows="4" required><?=$product['productDescription']?></textarea><br />
+                                <strong>Price</strong> <input type="text" class="form-control" name="price" value="<?=$product['price']?>" required>
+                                <br />
+                                <br />
+                                <strong>Set Image Url</strong> <input type="text" class="form-control" name="productImage" value="<?=$product['productImage']?>" required>
+                                <br />
+                            </div>
+                            <div class="input-group">
+                                <strong>Category</strong>
+                                <select name="catId" class="form-control" required>
+                                    <option value="">Select One</option>
+                                    <?php getCategories($product['catId']);?>
+                                </select> <br />
+                                <input type="submit" class'btn btn-primary' name="updateProduct" value="Update Product">
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <strong>Category</strong>
-                            <select name="catId" class="form-control">
-                                <option value="">Select One</option>
-                                <?php getCategories($product['catId']);?>
-                            </select> <br />
-                            <input type="submit" class'btn btn-primary' name="updateProduct" value="Update Product">
-                        </div>
-
-                        
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </body>
