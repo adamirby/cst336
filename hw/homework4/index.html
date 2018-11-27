@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Pacman</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/pacman.css">
+		<link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/myGameLibrary.js"></script>
+	</head>
+	<body  id='main'>
+		<div class='container' id="centerPane">
+			<div class='jumbotron text-center '>
+				<span id="survive">
+					<h1>Pacman</h1>
+					<h3>Survive</h3>
+				</span>
+			</div>
+			<div class='container text-center'>
+				<button class="strtBtn btn btn-success">Play/New Game</button>
+			</div>	
+			<br />
+			<div class='container text-center' id="gameWindow"></div>
+			<br />
+			<div class='row'>
+				<div class='col-md-2 col-md-offset-3 panel panel-info'>
+					<span class='panel-info time'>Time Alive: <span id="alive">0</span></span> 
+				</div>
+				<div class="col-md-2 col-md-offset-2 panel panel-info">
+					<span class='panel-info time'>Best Time: <span id="best">0</span></span>
+				</div>
+			</div>
+			<div id='dead' class='container text-center'>
+				<span id='survive'>You died!</span>
+			</div>
+		</div>
+		<script src="js/pacman.js"></script>
+	</body>
+</html>
+
+
