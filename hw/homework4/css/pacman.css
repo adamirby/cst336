@@ -20,14 +20,14 @@
 	height: 100vh;
 }
 
-#survive{
-	font-family: 'Creepster', cursive;
-	color:red;
-}
-
 #dead{
 	display:none;
 	font-size: 2em;
+}
+
+.survive{
+	font-family: 'Creepster', cursive;
+	color:red;
 }
 
 .jumbotron{
