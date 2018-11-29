@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+}
+
+#petCarousel{
+    position:relative;
+}
+
+#petCarousel img{
+    margin: 0 auto;   
+    height: 550px;
+    width: 550px;
+    
+}
+
+.carousel-control-prev{
+    left: 30%;
+}
+
+.carousel-control-next{
+    right: 30%;
+}

@@ -1,0 +1,9 @@
+[29-Nov-2018 03:23:24 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php on line 8
+[29-Nov-2018 03:23:24 UTC] PHP Stack trace:
+[29-Nov-2018 03:23:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php:0
+[29-Nov-2018 03:23:37 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php on line 8
+[29-Nov-2018 03:23:37 UTC] PHP Stack trace:
+[29-Nov-2018 03:23:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php:0
+[29-Nov-2018 03:24:06 UTC] PHP Fatal error:  Call to undefined function prepare() in /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php on line 8
+[29-Nov-2018 03:24:06 UTC] PHP Stack trace:
+[29-Nov-2018 03:24:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/cst336/labs/lab8/api/getPetInfo.php:0
