@@ -25,8 +25,8 @@
             </button>
             <div class="callopse navbar-callopse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link <?=($_SERVER['PHP_SELF']=='/cst336/labs/lab8/pet_shelter.php'?'active':'')?>" href="pet_shelter.php">Home<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link <?=($_SERVER['PHP_SELF']=='/cst336/labs/lab8/pets.php'?'active':'')?>" href="pets.php">Adoptions</a>
+                    <a class="nav-item nav-link <?=($_SERVER['PHP_SELF']=='labs/lab8/pet_shelter.php'?'active':'')?>" href="pet_shelter.php">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link <?=($_SERVER['PHP_SELF']=='labs/lab8/pets.php'?'active':'')?>" href="pets.php">Adoptions</a>
                 </div>
             </div>
         </nav>
