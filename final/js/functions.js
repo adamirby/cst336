@@ -1,4 +1,4 @@
-//ajax
+//modal ajax
 $(document).ready( function(){
     $("#loginBtn").click( function(){
         $('#loginModal').modal("show");
@@ -6,7 +6,7 @@ $(document).ready( function(){
         
         $.ajax({
             success: function() {
-                $("#login").html("<div class='form' id='signinForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' id='loginUsername' name='loginUsername' class='form-control' placeholder='Username'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' id='loginPassword' name='loginPassword' placeholder='Password' class='form-control'/><br /></div></div></div>"); 
+                $("#login").html("<div class='form' id='signinForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' id='username' name='username' class='form-control' placeholder='Username'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' id='password' name='password' placeholder='Password' class='form-control'/><br /></div></div></div>"); 
                 $("#login").append("<div class='btn-group'><button type='button' id='loginSubmit' class='btn btn-default' aria-label='Login'>Login</button></div>");
                 $("#loginModalLabel").html("<span class='modalTitle text-center'>Login</div>");                   
             },
@@ -25,38 +25,82 @@ $(document).ready( function(){
             datatype: "text",
             data: {action: 'getStates'},
             success: function(data, status) {
-                $("#signup").html("<div class='form' id='signupForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' name='username' placeholder='Username' class='form-control'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' name='password' placeholder='Password' class='form-control'/><br /></div>");   
+                $("#signup").html("<div class='form' id='signupForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' id='username' name='username' class='form-control' placeholder='Username'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' id='password' name='password' placeholder='Password' class='form-control'/><br /></div>");   
                 $("#signup").append("<label for='stateSelect'>Select State</label>");
                 $("#signup").append("<select class='form-control' id='stateSelect'>" +data+ "</select></div></div>");
-                $("#signup").append("<br /><div class='btn-group'><button type='button' class='btn btn-default' class='close' data-dismiss='modal' aria-label='Sign Up'>Sign Up</button></div>");
+                $("#signup").append("<br /><div class='btn-group'><button type='button' id='signupSubmit' class='btn btn-default' aria-label='Sign Up'>Sign Up</button></div>");
                
                 $("#signupModalLabel").html("<span class='modalTitle text-center'>Sign Up</span>");                   
             },
             complete: function(data, status) { // Used for debugging purposes
             }
         });
-    }); 
+    });
+    
+    $("#logoutBtn").click(function(){
+        $.ajax({
+           type: "POST",
+           url: "inc/functions.php",
+           data:{action: 'logout'},
+           success:function(){
+               location.reload();
+           },
+           complete: function(){ // Used for debugging purposes
+           }
+        });
+        
+    });
 });
 
 
-//listeners
+//modal submit ajax
 $(document).on("click", "#loginSubmit", function(event){
+
+    if(modalCheck()){
+        var username = $('#username').val();
+        var password= $('#password').val();
+        
+        $.ajax({
+            type: "POST",
+            url: "inc/functions.php",
+            datatype: "text",
+            data: {action: 'login', username: username, password: password},
+            success: function(data, status){
+                if(data=='success'){
+                    $('#loginModal').modal('toggle');
+                    location.reload();
+                }else{
+                    $(".btn-group").after('<span class="error">&nbsp;&nbsp;Incorrect Username or Password</span>') //move this to validation for login only
+                }
+                
+            },
+            complete: function(data, status){ // Used for debugging purposes
+            },
+        });
+    }
+    
+});
+
+$(document).on("click", "#signupSubmit", function(event){
+    modalCheck();
+});
+
+
+//functions
+function modalCheck(){
+    var returnVal = false;
     $(".error").remove();
     
-    if(!$('#loginUsername').val() && !$('#loginPassword').val()){
-        $('#signinForm .glyphicon-user').after(' <span class="error">*</span>');
+    if(!$('#username').val() && !$('#password').val()){
+        $('.input-group-addon .glyphicon-user').after(' <span class="error">*</span>');
         $('.glyphicon-lock').after(' <span class="error">*</span>');
-        $(".btn-group").after('<span class="error">&nbsp;&nbsp;Incorrect Username or Password</span>') //move this to validation
-    }else if(!$('#loginUsername').val()){
-        $('#signinForm .glyphicon-user').after(' <span class="error">*</span>');
-    }else if(!$('#loginPassword').val()){
+    }else if(!$('#username').val()){
+        $('.input-group-addon .glyphicon-user').after(' <span class="error">*</span>');
+    }else if(!$('#password').val()){
         $('.glyphicon-lock').after(' <span class="error">*</span>');
+    }else{
+        returnVal = true;
     }
     
-    if($('#loginUsername').val() && $('#loginPassword').val()){
-        var username = $('#loginUsername').val();
-        var password= $('#loginPassword').val();
-        console.log(username + " " + password); 
-        $('#loginModal').modal('toggle');
-    }
-});
+    return returnVal;
+}

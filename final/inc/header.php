@@ -1,4 +1,6 @@
 <?php
+   
+    session_start();
     include 'inc/functions.php';
 ?>
 
@@ -18,7 +20,7 @@
     </head>
     <body>
         <!-- Navbar here -->
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class='navbar-header'>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#headerNav">
@@ -39,11 +41,17 @@
                             <a href="#"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Inventory</i></a>
                         </li>
                         <!-- Only display if admin is logged in -->
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin&nbsp;<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Admin Page 1</a></li>
-                        </ul>
-                        </li>
+                        <?=$_SESSION['isAdmin']==true?'
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin&nbsp;<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#">Admin Page 1</a>
+                                    </li>
+                                    </ul>
+                            </li>
+                        ':''?>
+
                         <li>
                             <form class="navbar-form">
                                 <div class="input-group">
@@ -62,15 +70,18 @@
                     <!-- Signup/login here -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- If user is logged in then show cart here with cart count here-->
-                        <li>
-                            <a href='#'>
-                            <span class='glyphicon glyphicon-shopping-cart' aria-hidden='true'>
-                                
-                            </span>&nbsp;Cart: 0</a>
-                        </li>
-                      <li><a href="#" id="signupBtn"><span class="glyphicon glyphicon-user" aria-hidden='true'></span>&nbsp;Sign Up</a></li>
-                      <!-- Switch to logout when user is logged in? -->
-                      <li><a href="#" id="loginBtn"><span class="glyphicon glyphicon-log-in" aria-hidden='true'></span>&nbsp;Login</a></li>
+                        <?=$_SESSION['loggedIn']==true?'
+                            <li>
+                                <a href="#">
+                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>&nbsp;Cart: 0</a>
+                                <li><a href="#" id="logoutBtn"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;Logout</a></li>
+                            </li>'
+                        :'
+                            <li>
+                                <a href="#" id="signupBtn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;Sign Up</a>
+                                <li><a href="#" id="loginBtn"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Login</a></li>
+                            </li>
+                        '?>
                     </ul>
                 </div>
             </div>
@@ -114,4 +125,4 @@
                 </div>
             </div>
         </div>
-        <script>
+        
