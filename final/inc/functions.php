@@ -9,7 +9,6 @@
         $stmt->execute();
         $records=$stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        
         foreach($records as $record){
             echo "<option>";
             echo $record['stateCode'];
