@@ -30,5 +30,11 @@
                 <li><a href="hw/homework4">Homework 4</a></li>
             </ul>
         </div>
+        
+        <div id="final">
+            <ul>
+                <li><a href="final">Final Project</a></li>
+            </ul>
+        </div>
     </body>
 </html>
