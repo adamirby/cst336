@@ -26,8 +26,10 @@ $(document).ready( function(){
             data: {action: 'getStates'},
             success: function(data, status) {
                 $("#signup").html("<div class='form' id='signupForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' name='username' placeholder='Username' class='form-control'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' name='password' placeholder='Password' class='form-control'/><br /></div>");   
-                $("#signup").append("<label for='stateSelect'>Select State</label><select class='form-control' id='stateSelect'>" + data + "</select></div></div>");
+                $("#signup").append("<label for='stateSelect'>Select State</label>");
+                $("#signup").append("<select class='form-control' id='stateSelect'>" +data+ "</select></div></div>");
                 $("#signup").append("<br /><div class='btn-group'><button type='button' class='btn btn-default' class='close' data-dismiss='modal' aria-label='Sign Up'>Sign Up</button></div>");
+               
                 $("#signupModalLabel").html("<span class='modalTitle text-center'>Sign Up</span>");                   
             },
             complete: function(data, status) { // Used for debugging purposes
