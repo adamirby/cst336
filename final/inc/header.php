@@ -1,3 +1,9 @@
+<?php
+    include('inc/functions.php');
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
     <head>
@@ -75,13 +81,13 @@
     $(document).ready( function(){
         $("#loginBtn").click( function(){
             $('#loginModal').modal("show");
-            $("#login").html("<img src='img/loading.gif'>");
+            $("#login").html("<div class='text-center'><img src='img/loading.gif'></div>");
             
             $.ajax({
                 success: function(data,status) {
-                   $("#login").html(" test");   
-                 
-                   $("#loginModalLabel").html("Place login information here");                   
+                    $("#login").html("<div class='form'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' name='username' class='form-control'/><br /></div></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' name='password' class='form-control'/><br /></div></div>"); 
+                    $("#login").append("<div class='btn-group'><button type='button' class='btn btn-default'>Login</button></div>");
+                    $("#loginModalLabel").html("<div class='modalTitle text-center'>Login</span>");                   
                 },
                 complete: function(data,status) { // Used for debugging purposes
                 }
@@ -90,13 +96,14 @@
         
         $("#signupBtn").click( function(){
             $('#signupModal').modal("show");
-            $("#signup").html("<img src='img/loading.gif'>");
+            $("#signup").html("<div class='text-center'><img src='img/loading.gif'></div>");
             
             $.ajax({
                 success: function(data,status) {
-                   $("#signup").html("Place sign up information here");   
-                 
-                   $("#signupModalLabel").html("Sign Up Here");                   
+                    $("#signup").html("<div class='form'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' name='username' class='form-control'/><br /></div></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' name='password' class='form-control'/><br /></div>");   
+                    $("#signup").append("<label for='stateSelect'>Select State</label><select class='form-control' id='stateSelect'><?php getStateCodes()?></select></div>");
+                    $("#signup").append("<br /><div class='btn-group'><button type='button' class='btn btn-default'>Sign Up</button></div>");
+                    $("#signupModalLabel").html("<div class='modalTitle text-center'>Sign Up</span>");                   
                 },
                 complete: function(data,status) { // Used for debugging purposes
                 }
@@ -111,10 +118,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-tital" id="loginModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h5 class="modal-tital" id="loginModalLabel"></h5>
             </div>
             <div class="modal-body">
                 <div id="login"></div>
@@ -130,10 +137,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-tital" id="signupModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h5 class="modal-tital" id="signupModalLabel"></h5>
             </div>
             <div class="modal-body">
                 <div id="signup"></div>
