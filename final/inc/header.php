@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse" id="headerNav">
                         
                     <ul class="nav navbar-nav">
-                        <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/index.php' || $_SERVER['PHP_SELF']=='/final/shop.php'?'active':'')?>"> <!-- change active depending on what page user is on -->
+                        <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/index.php' || $_SERVER['PHP_SELF']=='/final/index.php'?'active':'')?>"> <!-- change active depending on what page user is on -->
                                 <a href="index.php" <?=($_SERVER['PHP_SELF']=='final/index.php'?'active':'')?>><i class="glyphicon glyphicon-home" aria-hidden='true'></i>&nbsp;Home</a>
                         </li> 
                         <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/shop.php' || $_SERVER['PHP_SELF']=='/final/shop.php'?'active':'')?>">
