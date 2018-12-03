@@ -70,7 +70,7 @@ $(document).on("click", "#loginSubmit", function(event){
                     $('#loginModal').modal('toggle');
                     location.reload();
                 }else{
-                    $(".btn-group").after('<span class="error">&nbsp;&nbsp;Incorrect Username or Password</span>') //move this to validation for login only
+                    $(".btn-group").after('<span class="error">&nbsp;&nbsp;Incorrect Username or Password</span>')
                 }
                 
             },
@@ -82,7 +82,29 @@ $(document).on("click", "#loginSubmit", function(event){
 });
 
 $(document).on("click", "#signupSubmit", function(event){
-    modalCheck();
+    
+    if(modalCheck()){
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var state = $('#stateSelect').val();
+        console.log(username + " " + password + " " + state);
+        $.ajax({
+            type: "POST",
+            url: "inc/functions.php",
+            datatype: "text",
+            data: {action: 'signup', username: username, password: password, state: state},
+            success:function(data, status){
+                if(data=="duplicate"){
+                    $(".btn-group").after('<span class="error">&nbsp;&nbsp;Username already exists.</span>')
+                } else if (data=='success'){
+                    $('#loginModal').modal('toggle');
+                    location.reload();
+                }
+            },
+            complete: function(data, status){ // Used for debugging purposes
+            }
+        });
+    }
 });
 
 

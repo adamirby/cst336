@@ -15,6 +15,10 @@
         if($_POST['action'] == 'logout'){
             echo session_destroy();
         }
+        
+        if($_POST['action'] == 'signup'){
+            echo signupAttempt($_POST['username'], $_POST['password'], $_POST['state']);
+        }
     }
 
     function getStateCodes(){
@@ -67,6 +71,53 @@
     
             $loginStatus='success';
         }
+        
+        return $loginStatus;
+    }
+    
+    function signupAttempt($username, $password, $state){
+        global $conn;
+        $loginStatus='fail';
+        $np=array();
+        $np2=array();
+        
+        $np[':username']=$username;
+        $np[':password']=sha1($password);
+        
+        $sql="INSERT INTO users VALUES (NULL, :username, :password)";
+              
+        try{
+            $stmt=$conn->prepare($sql);
+            $stmt->execute($np);
+        }  catch (PDOException $e) {
+            if ($e->errorInfo[1] == 1062){
+                $loginStatus="duplicate";
+            }else{
+                $loginStatus="error";
+            }
+            
+            return $loginStatus;
+        }   
+        
+        
+        $np2[':username']=$username;
+        $sql="INSERT INTO user_roles VALUES ((SELECT userID FROM users WHERE username=:username), (SELECT roleId FROM roles WHERE roleName='User'))";
+        
+        $stmt=$conn->prepare($sql);
+        $stmt->execute($np2);
+
+        $np2[':username']=$username;
+        $sql="INSERT INTO user_states VALUES ((SELECT userID FROM users WHERE username=:username), (SELECT stateCode FROM states WHERE stateCode='$state'))";
+        
+        try{
+            $stmt=$conn->prepare($sql);
+            $stmt->execute($np2);
+        } catch (PDOException $e){
+            $loginStatus="3";
+            return $loginStatus;
+        }
+        
+        $loginStatus = loginAttempt($username, $password);
         
         return $loginStatus;
     }

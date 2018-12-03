@@ -1,5 +1,4 @@
 <?php
-   
     session_start();
     include 'inc/functions.php';
 ?>
@@ -20,6 +19,7 @@
     </head>
     <body>
         <!-- Navbar here -->
+     
         <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class='navbar-header'>
@@ -38,7 +38,7 @@
                                 <a href="#"><i class="glyphicon glyphicon-home" aria-hidden='true'></i>&nbsp;Home</a>
                         </li> 
                         <li>
-                            <a href="#"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Inventory</i></a>
+                            <a href="#"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Shop</i></a>
                         </li>
                         <!-- Only display if admin is logged in -->
                         <?=$_SESSION['isAdmin']==true?'
@@ -48,7 +48,7 @@
                                     <li>
                                         <a href="#">Admin Page 1</a>
                                     </li>
-                                    </ul>
+                                </ul>
                             </li>
                         ':''?>
 
@@ -69,7 +69,7 @@
                     
                     <!-- Signup/login here -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- If user is logged in then show cart here with cart count here-->
+                        <!-- If user is logged in then show cart else show sign up button-->
                         <?=$_SESSION['loggedIn']==true?'
                             <li>
                                 <a href="#">
@@ -86,43 +86,7 @@
                 </div>
             </div>
         </nav>
-
-        <!--Modals-->
-        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="modal-tital" id="loginModalLabel"></h5>
-                    </div>
-                    <div class="modal-body">
-                        <div id="login"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         
-        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="modal-tital" id="signupModalLabel"></h5>
-                    </div>
-                    <div class="modal-body">
-                        <div id="signup"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+<?php
+    include 'inc/modals.php'
+?>
