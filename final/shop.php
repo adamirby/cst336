@@ -4,7 +4,7 @@
 ?>
 
   <div class='container'>
-      Home Page
+      Shop Page
   </div>
 <?php
     include 'inc/footer.php';

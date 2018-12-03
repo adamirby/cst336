@@ -28,17 +28,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Used VHS Emporium</a>
+                    <a class="navbar-brand" href="index.php"">Used VHS Emporium</a>
                 </div>
                 
                 <div class="collapse navbar-collapse" id="headerNav">
                         
                     <ul class="nav navbar-nav">
-                        <li class="active"> <!-- change active depending on what page user is on -->
-                                <a href="#"><i class="glyphicon glyphicon-home" aria-hidden='true'></i>&nbsp;Home</a>
+                        <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/index.php' || $_SERVER['PHP_SELF']=='/final/shop.php'?'active':'')?>"> <!-- change active depending on what page user is on -->
+                                <a href="index.php" <?=($_SERVER['PHP_SELF']=='final/index.php'?'active':'')?>><i class="glyphicon glyphicon-home" aria-hidden='true'></i>&nbsp;Home</a>
                         </li> 
-                        <li>
-                            <a href="#"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Shop</i></a>
+                        <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/shop.php' || $_SERVER['PHP_SELF']=='/final/shop.php'?'active':'')?>">
+                            <a href="shop.php"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Shop</i></a>
                         </li>
                         <!-- Only display if admin is logged in -->
                         <?=$_SESSION['isAdmin']==true?'

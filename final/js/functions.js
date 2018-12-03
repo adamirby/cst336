@@ -108,6 +108,7 @@ $(document).on("click", "#signupSubmit", function(event){
 });
 
 
+
 //functions
 function modalCheck(){
     var returnVal = false;
