@@ -18,6 +18,7 @@
         </style>
     </head>
     <body>
+        
         <!-- Navbar here -->
      
         <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top">
@@ -38,7 +39,7 @@
                                 <a href="index.php" <?=($_SERVER['PHP_SELF']=='final/index.php'?'active':'')?>><i class="glyphicon glyphicon-home" aria-hidden='true'></i>&nbsp;Home</a>
                         </li> 
                         <li class="<?=($_SERVER['PHP_SELF']=='/cst336/final/shop.php' || $_SERVER['PHP_SELF']=='/final/shop.php'?'active':'')?>">
-                            <a href="shop.php"><i class="glyphicon glyphicon-film" aria-hidden='true'>&nbsp;Shop</i></a>
+                            <a href="shop.php"><i class="glyphicon glyphicon-film" aria-hidden='true'></i>&nbsp;Shop</a>
                         </li>
                         <!-- Only display if admin is logged in -->
                         <?=$_SESSION['isAdmin']==true?'

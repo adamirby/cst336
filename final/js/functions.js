@@ -27,7 +27,7 @@ $(document).ready( function(){
             success: function(data, status) {
                 $("#signup").html("<div class='form' id='signupForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' id='username' name='username' class='form-control' placeholder='Username'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' id='password' name='password' placeholder='Password' class='form-control'/><br /></div>");   
                 $("#signup").append("<label for='stateSelect'>Select State</label>");
-                $("#signup").append("<select class='form-control' id='stateSelect'>" +data+ "</select></div></div>");
+                $("#signup").append("<select class='form-control' id='stateSelect'>" + data + "</select></div></div>");
                 $("#signup").append("<br /><div class='btn-group'><button type='button' id='signupSubmit' class='btn btn-default' aria-label='Sign Up'>Sign Up</button></div>");
                
                 $("#signupModalLabel").html("<span class='modalTitle text-center'>Sign Up</span>");                   
