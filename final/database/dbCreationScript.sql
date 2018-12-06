@@ -2,9 +2,20 @@
 -- *************** Tom Cruise Emporium ***************;
 
 SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS user_roles, user_states, TRANSACTION, users, states, roles, product;
+DROP TABLE IF EXISTS user_roles, TRANSACTION, users, states, roles, product;
 SET FOREIGN_KEY_CHECKS = 1;
 SET @@auto_increment_increment = 1;
+
+
+-- ************************************** `states`
+
+CREATE TABLE states
+(
+ stateCode VARCHAR(2) NOT NULL ,
+ stateTax  DECIMAL(10,6) NOT NULL ,
+ shipping DECIMAL(10,2) NOT NULL ,
+PRIMARY KEY (stateCode)
+);
 
 -- ************************************** `users`
 
@@ -13,8 +24,10 @@ CREATE TABLE users
  userId   TINYINT NOT NULL AUTO_INCREMENT ,
  userName VARCHAR(16) NOT NULL ,
  PASSWORD CHAR(40) NOT NULL ,
+ stateCode VARCHAR(2) NOT NULL ,
 PRIMARY KEY (userId),
-UNIQUE(userName)
+UNIQUE(userName),
+CONSTRAINT FK_users_state FOREIGN KEY (stateCode) REFERENCES states (stateCode)
 );
 
 -- ************************************** `roles`
@@ -27,15 +40,6 @@ CREATE TABLE roles
 PRIMARY KEY (roleId)
 );
 
--- ************************************** `states`
-
-CREATE TABLE states
-(
- stateCode VARCHAR(2) NOT NULL ,
- stateTax  DECIMAL(10,6) NOT NULL ,
- shipping DECIMAL(10,2) NOT NULL ,
-PRIMARY KEY (stateCode)
-);
 
 -- ************************************** `product`
 
@@ -49,14 +53,6 @@ CREATE TABLE product
 PRIMARY KEY (productId)
 );
 
--- ************************************** `user_states`
-
-CREATE TABLE user_states
-(
-	userID TINYINT NOT NULL,
-	stateCode VARCHAR(2) NOT NULL,
-PRIMARY KEY(userID, stateCode)
-);
 
 -- ************************************** `user_roles`
 
@@ -77,17 +73,15 @@ CREATE TABLE TRANSACTION
  lineNumber INT NOT NULL ,
  productId  INT NOT NULL ,
  stateCode  VARCHAR(2) NOT NULL ,
+ userId     tinyint NOT NULL ,
 PRIMARY KEY (tranId, lineNumber),
 CONSTRAINT FK_transaction_product FOREIGN KEY (productId) REFERENCES product (productId),
-CONSTRAINT FK_transaction_state FOREIGN KEY (stateCode) REFERENCES states (stateCode)
+CONSTRAINT FK_transaction_state FOREIGN KEY (stateCode) REFERENCES states (stateCode),
+CONSTRAINT FK_transaction_user FOREIGN KEY (userId) REFERENCES users (userId)
 );
 
 
 -- ******************** INSERT STATEMENTS **********************
-
-
-INSERT INTO users (userId, userName, PASSWORD) VALUES
-(NULL, 'admin', SHA1('secret'));
 
 
 INSERT INTO states (stateCode, stateTax, shipping) VALUES
@@ -146,6 +140,11 @@ INSERT INTO states (stateCode, stateTax, shipping) VALUES
 
 
 
+INSERT INTO users (userId, userName, PASSWORD, stateCode) VALUES
+(NULL, 'admin', SHA1('secret'), 'CA');
+
+
+
 INSERT INTO roles (roleId, roleName, roleDescription) VALUES
 (NULL, 'Admin', 'Site Administrator'),
 (NULL, 'User', 'Normal User');
@@ -155,7 +154,7 @@ INSERT INTO roles (roleId, roleName, roleDescription) VALUES
 INSERT INTO product (productId, NAME, description, imageURL, price) VALUES
 (NULL, 'Cocktail', "Tom Cruise is electrifying as Brian Flanagan, a young, confident, and ambitious bartender who moves to Jamaica and meets an independent artist.", 'https://images-na.ssl-images-amazon.com/images/I/41SCM1BQDWL._SY445_.jpg', 6.98),
 (NULL, 'The Firm', "The Firm is a roller coaster of twists and turns that leave the viewer breathless.", 'https://images-na.ssl-images-amazon.com/images/I/81H%2BUXcj%2B7L._SL1500_.jpg', 7.10),
-(NULL, 'Top Gun', "Tom Cruise stars as Maverick, a talented training pilot in an elite U.S. school for fighter pilots. When he stumbles upon some MiG's over the Persian Gulf, and his wingman panics, Maverick cleverly talks him through the situation to safety.", 'https://images-na.ssl-images-amazon.com/images/I/81H%2BUXcj%2B7L._SL1500_.jpg', 15.98),
+(NULL, 'Top Gun', "Tom Cruise stars as Maverick, a talented training pilot in an elite U.S. school for fighter pilots. When he stumbles upon some MiG's over the Persian Gulf, and his wingman panics, Maverick cleverly talks him through the situation to safety.", 'https://images-na.ssl-images-amazon.com/images/I/5116B0CZ7ML.jpg', 15.98),
 (NULL, 'All The Right Moves', "Stefan 'Stef' Djordjevic (Tom Cruise) is a Serbian-American high school defensive back who is both gifted in sports and academics seeking a college football scholarship to escape the economically depressed small western Pennsylvania town of Ampipe and a dead-end job and life working at the mill like his father and brother Greg.", 'https://images-na.ssl-images-amazon.com/images/I/518VWlUCULL._SY445_.jpg', 9.99),
 (NULL, 'The Outsiders', "S.E. Hinton's beloved novel of teens from the wrong side of the tracks, directed by Francis Ford Coppola, featuring Matt Dillon, Tom Cruise, Rob Lowe, Patrick Swayze and other young stars.", 'https://images-na.ssl-images-amazon.com/images/I/516T%2BGI9-xL._SY445_.jpg', 1.97),
 (NULL, 'Days of Thunder', "In the fast-paced world of NASCAR, a rivalry brews between rookie hotshot Cole Trickle (Tom Cruise) and veteran racer Rowdy Burns (Michael Rooker).", 'https://images-na.ssl-images-amazon.com/images/I/41R8RH8A47L._SY445_.jpg', 6.99),
@@ -168,6 +167,3 @@ INSERT INTO product (productId, NAME, description, imageURL, price) VALUES
 
 INSERT INTO user_roles (userId, roleId) VALUES
 ( (SELECT userId FROM users WHERE userName='admin'), (SELECT roleId FROM roles WHERE roleName='Admin'));
-
-INSERT INTO user_states (userID, stateCode) VALUES
-((SELECT userID FROM users WHERE userName='admin'), 'CA');

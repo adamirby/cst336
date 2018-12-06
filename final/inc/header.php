@@ -1,6 +1,10 @@
 <?php
     session_start();
     include 'inc/functions.php';
+    
+    if (empty($_SESSION['cart'])){
+        $_SESSION['cart'] = array();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +58,11 @@
                         ':''?>
 
                         <li>
-                            <form class="navbar-form">
+                            <form class="navbar-form" action="shop.php" method="POST">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search">
+                                    <input type="text" class="form-control" placeholder="Search" name="searchVal">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit">
+                                        <button class="btn btn-default" type="submit" id="searchBtn">
                                             <i class="glyphicon glyphicon-search" aria-hidden='true'></i>
                                         </button>
                                     </div>
