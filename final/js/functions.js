@@ -37,6 +37,21 @@ $(document).ready( function(){
         });
     });
     
+    $("#shopSearchBtn").click( function(){
+        $('#searchModal').modal("show");
+        $("#searchOptions").html("<div class='text-center'><img src='img/loading.gif'></div>");
+        
+        $.ajax({
+            success: function() {
+                $("#searchOptions").html("<div class='form' id='signinForm'><div class='form-group'><span class='userPrompt'>Username:</span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span><input type='text' id='username' name='username' class='form-control' placeholder='Username'/><br /></div></div><div class='form-group'><span class='userPrompt'>Password: </span><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-lock' aria-hidden='true'></i></span><input type='password' id='password' name='password' placeholder='Password' class='form-control'/><br /></div></div></div>"); 
+                $("#searchOptions").append("<div class='btn-group'><button type='button' id='loginSubmit' class='btn btn-default' aria-label='Login'>Login</button></div>");
+                $("#searchModalLabel").html("<span class='modalTitle text-center'>Advanced Search</div>");                   
+            },
+            complete: function() { // Used for debugging purposes
+            }
+        });
+    });
+    
     $("#logoutBtn").click(function(){
         $.ajax({
            type: "POST",
