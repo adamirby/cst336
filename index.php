@@ -33,7 +33,7 @@
         
         <div id="final">
             <ul>
-                <li><a href="final">Final Project</a></li>
+                <li><a href="final-project">Final Project</a></li>
             </ul>
         </div>
     </body>
